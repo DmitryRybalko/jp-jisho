@@ -17,15 +17,16 @@ function Search() {
   };
   return (
     <>
-      <form className="search" action="">
+      <form className="search-form" action="">
         <input
+          className="search"
+          autoFocus={true}
           type="text"
-          placeholder="search..."
           value={textInput}
           onChange={inputHandler}
         />
         <button className="search__button" onClick={submitSearch} type="submit">
-          Search
+          検索
         </button>
       </form>
     </>

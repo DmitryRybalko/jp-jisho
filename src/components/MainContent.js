@@ -1,11 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function MainContent() {
   const { wiki, jisho } = useSelector((state) => state.word);
   const definitions = wiki
     .toString()
     .match(new RegExp("の用語解説 -" + "(.*)" + `"`));
+  let myInput = null;
+  const copyToClipboard = () => {
+    myInput.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + myInput.value);
+  };
+
   return (
     <>
       {wiki.length > 0 && (
@@ -32,6 +40,9 @@ function MainContent() {
           <div className="searched-word__definition">
             <p>{definitions && definitions[1]}</p>
           </div>
+          <CopyToClipboard text={definitions && definitions[1]}>
+            <button className="clipboard-btn">Copy to clipboard</button>
+          </CopyToClipboard>
         </main>
       )}
     </>
