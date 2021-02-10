@@ -1,3 +1,6 @@
+## Japanese dictionary. Created to help japanese language learners to make monolingual transition easier. 
+In order to solve CORS, I used a proxy server, so it might take some time to fetch the results.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
