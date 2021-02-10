@@ -4,7 +4,7 @@ import Search from "./Search";
 function Header() {
   return (
     <header className="header">
-      <h1>Dictionary</h1>
+      <h1 className="header_title">Dictionary</h1>
       <Search />
     </header>
   );

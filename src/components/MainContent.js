@@ -7,10 +7,34 @@ function MainContent() {
     .toString()
     .match(new RegExp("の用語解説 -" + "(.*)" + `"`));
   return (
-    <div>
-      <p>{jisho && jisho.length != 0 && jisho.data[0].slug}</p>
-      <p>{definitions && definitions[1]}</p>
-    </div>
+    <>
+      {wiki.length > 0 && (
+        <main className="searched-word">
+          <div className="searched-word__info">
+            <div className="searched-word__word">
+              <p>{jisho && jisho.length != 0 && jisho.data[0].slug}</p>
+            </div>
+            <div className="searched-word__reading">
+              <p>
+                {jisho &&
+                  jisho.length != 0 &&
+                  jisho.data[0].japanese[0].reading}
+              </p>
+            </div>
+            <div className="searched-word__hint">
+              <p>
+                {jisho &&
+                  jisho.length != 0 &&
+                  jisho.data[0].senses[0].english_definitions[0]}
+              </p>
+            </div>
+          </div>
+          <div className="searched-word__definition">
+            <p>{definitions && definitions[1]}</p>
+          </div>
+        </main>
+      )}
+    </>
   );
 }
 
